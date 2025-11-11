@@ -60,12 +60,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <label for="jenis_kelamin_siswa">Jenis kelamin</label>
                             </td>
                             <td>
-                                <input type="radio" name="jenis_kelamin_siswa" id="jenis_kelamin_siswa"
-                                    value="laki_laki">
-                                <label for="jenis_kelamin_siswa">Laki laki</label>
-                                <input type="radio" name="jenis_kelamin_siswa" id="jenis_kelamin_siswa"
-                                    value="perempuan">
-                                <label for="jenis_kelamin_siswa">Perempuan</label>
+                                <select name="jenis_kelamin_siswa" id="jenis_kelamin_siswa">
+                                    <option value="laki_laki">Laki Laki</option>
+                                    <option value="perempuan">Perempuan</option>
+                                </select>
                             </td>
 
                         </tr>

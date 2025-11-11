@@ -44,7 +44,7 @@ function addSiswa(array $data)
         ":password_siswa" => md5($data['password_siswa']),
     ]);
     if ($stmnt->rowCount() > 0) {
-        header("Location: berhasil.php");
+        header("Location: ../auth/login_siswa.php");
     } else {
         echo "Gagal insert data.";
     }
@@ -86,5 +86,86 @@ function uploadFileGambarSiswa()
     $fileBaru = $namaFileBaru;
     move_uploaded_file($tmpName, "../source/upload/images/" . $fileBaru);
     return $fileBaru;
+}
+
+function loginSiswa($nisn, $password)
+{
+    global $connect;
+    $stmnt = $connect->prepare("SELECT * FROM siswa WHERE NISN_SISWA = :nisn_login_siswa");
+    $stmnt->execute([
+        ":nisn_login_siswa" => $nisn,
+    ]);
+    $log = $stmnt->fetch();
+    if (!$log) {
+        echo "Username tidak valid!";
+        return;
+    }
+    if ($log['PASSWORD_SISWA'] !== $password) {
+        echo "Password salah!";
+        return;
+    }
+    session_start();
+    $_SESSION['NISN_SISWA'] = $log['NISN_SISWA'];
+    header("Location: ../index.php");
+}
+
+function updateSiswa($nisn, $data)
+{
+    global $connect;
+
+    // Ambil data siswa lama
+    $stmnt = $connect->prepare("SELECT * FROM siswa WHERE NISN_SISWA = :nisn");
+    $stmnt->execute([':nisn' => $nisn]);
+    $siswaLama = $stmnt->fetch();
+
+    if (!$siswaLama) {
+        echo "Data siswa tidak ditemukan!";
+        return false;
+    }
+
+    // Jika user upload foto baru
+    if ($_FILES['foto_siswa']['error'] === 0) {
+        $fotoBaru = uploadFileGambarSiswa();
+
+        // hapus foto lama
+        if ($siswaLama['FOTO_SISWA_SISWA'] != "") {
+            $oldPath = "../source/upload/images/" . $siswaLama['FOTO_SISWA_SISWA'];
+            if (file_exists($oldPath)) {
+                unlink($oldPath);
+            }
+        }
+    } else {
+        // Tidak upload foto baru → tetap pakai yang lama
+        $fotoBaru = $siswaLama['FOTO_SISWA_SISWA'];
+    }
+
+    // Update database
+    $stmnt = $connect->prepare("
+        UPDATE siswa SET
+            NAMA_LENGKAP_SISWA = :nama,
+            ALAMAT_SISWA = :alamat,
+            TANGGAL_LAHIR_SISWA = :tgl,
+            JENIS_KELAMIN_SISWA = :jk,
+            NO_TELPON_SISWA = :telp,
+            FOTO_SISWA_SISWA = :foto
+        WHERE NISN_SISWA = :nisn
+    ");
+
+    $update = $stmnt->execute([
+        ':nama' => $data['nama_lengkap_siswa'],
+        ':alamat' => $data['alamat_siswa'],
+        ':tgl' => $data['tanggal_lahir_siswa'],
+        ':jk' => $data['jenis_kelamin_siswa'],
+        ':telp' => $data['no_telp_siswa'],
+        ':foto' => $fotoBaru,
+        ':nisn' => $nisn
+    ]);
+
+    if ($update) {
+        header("Location: ../index.php");
+        exit;
+    } else {
+        echo "Gagal update.";
+    }
 }
 ?>
