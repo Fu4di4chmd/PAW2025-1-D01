@@ -1,6 +1,7 @@
 <!-- Update profil siswa setelah login. -->
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE)
+    session_start();
 require_once("../config/function.php");
 
 // pastikan sudah login

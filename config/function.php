@@ -10,7 +10,8 @@ dll -->
 
 <?php
 require_once "database.php";
-session_start();
+if (session_status() === PHP_SESSION_NONE)
+    session_start();
 
 function addSiswa(array $data)
 {
