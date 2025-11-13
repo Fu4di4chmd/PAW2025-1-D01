@@ -1,16 +1,1 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar sekolah</title>
-</head>
-
-<body>
-    <form action="" method="POST">
-        <label for=""></label>
-    </form>
-</body>
-
-</html>
+<h1>ini nanti siswa bisa daftar disini</h1>
