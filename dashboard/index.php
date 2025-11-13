@@ -11,8 +11,7 @@ global $connect;
 $stmnt = $connect->prepare("SELECT * FROM siswa WHERE NISN_SISWA = :nisn");
 $stmnt->execute([':nisn' => $nisn]);
 $siswa = $stmnt->fetch();
-require_once "../components/header.php"
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,14 +19,19 @@ require_once "../components/header.php"
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Siswa</title>
+</head>
 
 <body>
-    <!-- Isi Halaman -->
-    <div class="container">
-        <h2>Selamat datang di web kami</h2>
-        <p>Ini adalah halaman dashboard siswa.</p>
+    <h2>Selamat datang di web kami</h2>
+
+    <div>
+        <img src="../source/upload/images/<?= $siswa['FOTO_SISWA_SISWA']; ?>" alt="Foto Siswa" width="100"
+            style="border-radius: 50%;">
+        <p><?= htmlspecialchars($siswa['NAMA_LENGKAP_SISWA']); ?></p>
     </div>
 
+    <a href="../siswa/edit_siswa.php">Edit Profil</a> |
+    <a href="../auth/logout.php">Logout</a>
 </body>
 
 </html>

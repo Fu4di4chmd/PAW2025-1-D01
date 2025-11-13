@@ -22,19 +22,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <div class="login-container">
-    <form action="" method="POST">
-        <div class="login-input">
-        <label for="nisn_login_siswa">Masukkan NISN</label>
-        <input type="text" name="nisn_login_siswa" id="nisn_login_siswa">
-        </div>
+        <form action="" method="POST">
+            <div class="login-input">
+                <label for="nisn_login_siswa">Masukkan NISN</label>
+                <input type="text" name="nisn_login_siswa" id="nisn_login_siswa">
+            </div>
 
-        <div class="login-input">
-        <label for="password_login_siswa">Masukkan Password</label>
-        <input type="text" name="password_login_siswa" id="password_login_siswa">
-        </div>
+            <div class="login-input">
+                <label for="password_login_siswa">Masukkan Password</label>
+                <input type="text" name="password_login_siswa" id="password_login_siswa">
+            </div>
 
-        <button type="submit" name="submit_login_siswa" class="btn-submit">login</button>
-    </form>
+            <button type="submit" name="submit_login_siswa" class="btn-submit">login</button>
+        </form>
     </div>
 </body>
 
