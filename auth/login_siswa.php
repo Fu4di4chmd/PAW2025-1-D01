@@ -17,34 +17,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Siswa / Admin</title>
+    <link rel="stylesheet" href="./source/css/style.css">
 </head>
 
 <body>
+    <div class="login-container">
     <form action="" method="POST">
-        <table border="0">
-            <tr>
-                <td>
-                    <label for="nisn_login_siswa">Masukkan NISN</label>
-                </td>
-                <td>
-                    <input type="text" name="nisn_login_siswa" id="nisn_login_siswa">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="password_login_siswa">Masukkan Password</label>
-                </td>
-                <td>
-                    <input type="text" name="password_login_siswa" id="password_login_siswa">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <button type="submit" name="submit_login_siswa">Kirim</button>
-                </td>
-            </tr>
-        </table>
+        <div class="login-input">
+        <label for="nisn_login_siswa">Masukkan NISN</label>
+        <input type="text" name="nisn_login_siswa" id="nisn_login_siswa">
+        </div>
+
+        <div class="login-input">
+        <label for="password_login_siswa">Masukkan Password</label>
+        <input type="text" name="password_login_siswa" id="password_login_siswa">
+        </div>
+
+        <button type="submit" name="submit_login_siswa" class="btn-submit">login</button>
     </form>
+    </div>
 </body>
 
 </html>
