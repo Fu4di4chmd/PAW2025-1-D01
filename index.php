@@ -13,7 +13,6 @@ require_once __DIR__ . "/config/base.php";
 <body>
     <?php require_once "./auth/login_siswa.php"; ?>
     belum punya akun? <a href="./siswa/registrasi_siswa.php">Register</a>
-    a
 </body>
 
 </html>

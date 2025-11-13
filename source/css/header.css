@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ======== NAVBAR ======== */
+.navbar {
+  position: relative;
+  background-color: #2e7d32; /* Warna hijau tua sebagai fallback */
+  background-image: url("../img/bg-pesantren.jpg"); /* ubah sesuai gambar kamu */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Lapisan transparan di atas background */
+.navbar-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 80, 0, 0.6); /* efek gelap transparan */
+  z-index: 1;
+}
+
+/* Isi konten navbar */
+.navbar-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Nama Brand */
+.brand {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Menu Navigasi */
+.menu {
+  display: flex;
+  gap: 25px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: #c8e6c9;
+}
+
+/* Profil Siswa */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 25px;
+}
+
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+.profile span {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* ======== RESPONSIF ======== */
+@media (max-width: 768px) {
+  .navbar-content {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .brand {
+    font-size: 18px;
+  }
+
+  .profile img {
+    width: 35px;
+    height: 35px;
+  }
+}
