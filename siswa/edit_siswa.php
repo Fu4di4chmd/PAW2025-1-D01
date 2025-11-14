@@ -1,4 +1,3 @@
-<!-- Update profil siswa setelah login. -->
 <?php
 if (session_status() === PHP_SESSION_NONE)
     session_start();
@@ -11,9 +10,7 @@ if (!isset($_SESSION['NISN_SISWA'])) {
 }
 
 $nisn = $_SESSION['NISN_SISWA'];
-var_dump($nisn);
 
-// Ambil data siswa
 global $connect;
 $stmnt = $connect->prepare("SELECT * FROM siswa WHERE NISN_SISWA = :nisn");
 $stmnt->execute([':nisn' => $nisn]);
@@ -26,7 +23,6 @@ if (!$siswa) {
 
 if (isset($_POST['submit_edit'])) {
     updateSiswa($nisn, $_POST);
-    echo "berhasil update";
 }
 require_once "../components/header.php"
     ?>

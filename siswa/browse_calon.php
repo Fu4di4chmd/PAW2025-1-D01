@@ -1,10 +1,8 @@
 <?php
-// ... (Bagian include function.php dan cek login sudah ada) ...
 require_once(__DIR__ . "/../config/function.php");
 if (session_status() === PHP_SESSION_NONE)
     session_start();
 
-// pastikan sudah login
 if (!isset($_SESSION['NISN_SISWA'])) {
     header("Location: ../index.php");
     exit;

@@ -124,7 +124,7 @@ button:hover {
   max-width: 800px;
   margin: 20px auto;
 }
-.btn-dft{
+.btn-dft {
   color: #ccc !important;
   text-decoration: none;
 }
@@ -146,13 +146,23 @@ input[type="file"] {
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: #ffe3e3;
-  padding: 15px 25px;
-  border-left: 5px solid #ff4d4d;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  animation: fadeIn 0.4s ease, fadeOut 0.5s ease 2.5s forwards;
+  min-width: 280px;
+  background: rgba(255, 77, 77, 0.15);
+  backdrop-filter: blur(12px);
+  padding: 14px 22px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  border-left: 6px solid #ff3b3b;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  animation: slideDown 0.45s ease, fadeOut 0.6s ease 2.6s forwards;
   z-index: 9999;
+}
+
+.error-icon {
+  font-size: 20px;
+  color: #ff3b3b;
 }
 
 .eror-akun {
@@ -160,13 +170,71 @@ input[type="file"] {
   font-weight: 600;
   font-size: 16px;
   color: #b30000;
+  letter-spacing: 0.3px;
 }
 
-/* Animasi fade in */
-@keyframes fadeIn {
+/* Animasi slide turun + fade in */
+@keyframes slideDown {
   from {
     opacity: 0;
+    transform: translateX(-50%) translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Animasi fade out */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  to {
+    opacity: 0;
     transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+/* succes */
+.success-popup-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 280px;
+  background: rgba(0, 190, 70, 0.15);
+  backdrop-filter: blur(12px);
+  padding: 14px 22px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  border-left: 6px solid #00c853;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  animation: slideDown 0.45s ease, fadeOut 0.6s ease 2.6s forwards;
+  z-index: 9999;
+}
+
+.success-icon {
+  font-size: 20px;
+  color: #00c853;
+}
+
+.success-text {
+  margin: 0;
+  font-weight: 600;
+  font-size: 16px;
+  color: #007f3b;
+  letter-spacing: 0.3px;
+}
+
+/* Animasi slide turun + fade in */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-15px);
   }
   to {
     opacity: 1;

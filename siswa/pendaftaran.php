@@ -27,8 +27,6 @@ if (isset($_POST['submit_pendaftaran'])) {
     // Panggil fungsi pendaftaran yang ada di config/function.php
     addPendaftaran($_POST, $nisn);
 }
-// -------------------------------------
-
 require_once '../components/header.php';
 ?>
 <!DOCTYPE html>
