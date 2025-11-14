@@ -3,6 +3,7 @@ require_once(__DIR__ . "/../config/function.php");
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     addSiswa($_POST);
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

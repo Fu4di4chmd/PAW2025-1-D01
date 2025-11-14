@@ -11,6 +11,7 @@ if (!isset($_SESSION['NISN_SISWA'])) {
 }
 
 $nisn = $_SESSION['NISN_SISWA'];
+var_dump($nisn);
 
 // Ambil data siswa
 global $connect;

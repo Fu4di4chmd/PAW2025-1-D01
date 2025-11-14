@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="../source/css/style.css">
 <section class="header-admin-siswa">
-    <h2 class="logo">PPDB PESANTREN</h2>
+    <h2 class="logo">PPDB Pesantern AL - AMIN</h2>
     <nav>
         <ul>
             <li><a href="../dashboard/index.php">Beranda</a></li>

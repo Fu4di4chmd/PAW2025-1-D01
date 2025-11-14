@@ -1,8 +1,6 @@
-<!-- daftar riwayat pendaftaran siswa
-status pendaftaran
-(Wajib sesuai persyaratan!) -->
 <?php
-require_once("../config/function.php");
+// ... (Bagian include function.php dan cek login sudah ada) ...
+require_once(__DIR__ . "/../config/function.php");
 if (session_status() === PHP_SESSION_NONE)
     session_start();
 
@@ -13,12 +11,13 @@ if (!isset($_SESSION['NISN_SISWA'])) {
 }
 
 $nisn = $_SESSION['NISN_SISWA'];
-
-// Ambil data siswa
 global $connect;
 $stmnt = $connect->prepare("SELECT * FROM siswa WHERE NISN_SISWA = :nisn");
 $stmnt->execute([':nisn' => $nisn]);
 $siswa = $stmnt->fetch();
+
 require_once "../components/header.php"
     ?>
-<h1>ini nanti siswa bisa tahu dia sudah ngisi apa saja</h1>
+<div class="form-container">
+    <h2>Riwayat Pendaftaran dan Status</h2>
+    <img src="../source/upload/images/<?= $siswa['FOTO_SISWA_SISWA'] ?>" alt="">
