@@ -1,5 +1,5 @@
 <?php
-require_once(_DIR_ . "/../config/function.php");
+require_once(__DIR__ . "/../config/function.php");
 if (!isset($_SESSION['NISN_SISWA'])) {
     header("Location: ../index.php");
     exit;
@@ -47,7 +47,7 @@ $siswa = $stmnt->fetch();
                 <li>Klik pendaftaran di atas</li>
                 <li>Masukkan data diri kamu</li>
                 <li>Usahakan semuanya terpenuhi di pendaftaran</li>
-                
+
                 <button><a href="../siswa/pendaftaran.php" class="btn-dft">ayo mendaftar</a></button>
             </ol>
         </div>
