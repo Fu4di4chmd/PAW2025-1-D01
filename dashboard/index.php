@@ -1,5 +1,5 @@
 <?php
-require_once(_DIR_ . "/../config/function.php");
+require_once(__DIR__ . "/../config/function.php");
 if (!isset($_SESSION['NISN_SISWA'])) {
     header("Location: ../index.php");
     exit;
