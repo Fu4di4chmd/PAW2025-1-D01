@@ -124,7 +124,10 @@ button:hover {
   max-width: 800px;
   margin: 20px auto;
 }
-
+.btn-dft{
+  color: #ccc !important;
+  text-decoration: none;
+}
 h2,
 h3 {
   color: #4caf50;
