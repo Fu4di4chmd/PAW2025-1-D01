@@ -41,14 +41,6 @@ $siswa = $stmnt->fetch();
                 pendidikan.
             </p>
         </div>
-        <div class="visi-misi">
-            <h3>Cara mendaftar</h3>
-            <ol type="1">
-                <li>Klik pendaftaran di atas</li>
-                <li>Masukkan data diri kamu</li>
-                <li>Usahakan semuanya terpenuhi di pendaftaran</li>
-            </ol>
-        </div>
     </section>
 </body>
 
