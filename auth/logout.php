@@ -6,3 +6,4 @@ session_destroy(); // menghancurkan session
 
 header("Location: ../index.php");
 exit;
+?>

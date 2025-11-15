@@ -38,25 +38,42 @@ require_once "../components/header.php"
 <div class="form-container">
     <h2 class="judul-riwayat">Riwayat Pendaftaran dan Status</h2>
     <?php foreach ($siswas as $sis): ?>
-        <img src="../source/upload/images/<?= $siswa['FOTO_SISWA_SISWA'] ?>" class="img-daftar" alt="">
-        <p><?= $sis['TANGGAL_PENDAFTARAN'] ?></p>
-        <p><?= $sis['NAMA_WALI'] ?></p>
-        <p><?= $sis['NO_HP_WALI'] ?></p>
-        <p>
-            <?php if ($sis['STATUS'] === "0"): ?>
-                Masih proses verifikasi
-            <?php endif ?>
-        </p>
-        <p><?= $sis['JURUSAN'] ?></p>
-        <p><?= $sis['JENJANG'] ?></p>
+        <div class="riwayat-item">
+
+            <img src="../source/upload/images/<?= $siswa['FOTO_SISWA_SISWA'] ?>" alt="Foto">
+
+            <p><b>Tanggal:</b> <?= $sis['TANGGAL_PENDAFTARAN'] ?></p>
+            <p><b>Nama Wali:</b> <?= $sis['NAMA_WALI'] ?></p>
+            <p><b>No HP Wali:</b> <?= $sis['NO_HP_WALI'] ?></p>
+
+            <p><b>Status:</b>
+                <?php if ($sis['STATUS'] === "0"): ?>
+                    <span class="status-badge status-proses">Proses Verifikasi</span>
+
+                <?php elseif ($sis['STATUS'] === "1"): ?>
+                    <span class="status-badge status-pending">Pending</span>
+
+                <?php else: ?>
+                    <span class="status-badge status-diterima">Diterima</span>
+                <?php endif; ?>
+            </p>
+
+            <p><b>Jurusan:</b> <?= $sis['JURUSAN'] ?></p>
+            <p><b>Program:</b> <?= $sis['JENJANG'] ?></p>
+        </div>
     <?php endforeach ?>
     <?php if (isset($showdocs)): ?>
-        <?php foreach ($showdocs as $showdocument): ?>
-            <?php if ($showdocument['JENIS_DOKUMEM'] === "Akte Kelahiran"): ?>
-                <a href="../source/upload/documents/<?= $showdocument['PATH_FILE'] ?>" target="_blank">Lihat Akte</a>
-            <?php elseif ($showdocument['JENIS_DOKUMEM'] === "Kartu Keluarga"): ?>
-                <a href="../source/upload/documents/<?= $showdocument['PATH_FILE'] ?>" target="_blank">Lihat KK</a>
-            <?php endif ?>
-        <?php endforeach ?>
-    <?php endif ?>
-</div>
+        <div class="dokumen-list">
+            <?php foreach ($showdocs as $showdocument): ?>
+                <?php if ($showdocument['JENIS_DOKUMEM'] === "Akte Kelahiran"): ?>
+                    <a class="link-doc" href="../source/upload/documents/<?= $showdocument['PATH_FILE'] ?>" target="_blank">
+                        Lihat Akte
+                    </a>
+                <?php elseif ($showdocument['JENIS_DOKUMEM'] === "Kartu Keluarga"): ?>
+                    <a class="link-doc" href="../source/upload/documents/<?= $showdocument['PATH_FILE'] ?>" target="_blank">
+                        Lihat KK
+                    </a>
+                <?php endif ?>
+            <?php endforeach ?>
+        <?php endif ?>
+    </div>

@@ -328,7 +328,7 @@ function uploadDocumentFile($fileKey, $keterangan)
 // siswa melakukan pendaftaran
 // ===========================
 
-function getStatusText($status_code)
+function getStatusText(string $status_code)
 {
     switch ($status_code) {
         case '0':
